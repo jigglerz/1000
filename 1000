@@ -1,0 +1,27 @@
+# part of https://github.com/Arriven/db1000n/blob/main/kubernetes/manifests/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db1000n
+  labels:
+    app: db1000n
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: db1000n
+  template:
+    metadata:
+      labels:
+        app: db1000n
+    spec:
+      containers:
+        - name: db1000n
+          image: ghcr.io/arriven/db1000n-advanced:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: "500m"
+            limits:
+              memory: "512Mi"
+              cpu: "1"

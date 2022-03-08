@@ -1,0 +1,2 @@
+deploy:
+- kubectl apply -f deploy-all-secrets.yaml
